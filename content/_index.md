@@ -4,6 +4,4 @@ draft = true
 title = ''
 +++
 
-{{<text>}}
-Hello world
-{{</text>}}
+Hello, this is my Blog

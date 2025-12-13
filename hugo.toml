@@ -10,18 +10,18 @@ footerTitle = "GixTheme.com"
 # kind of content
 [[params.BlogContentKinds]]
 name = "Posts"
-maxShow = 2
+maxShow = 5
 section = "posts"
 url = "/posts"
-defaultThumbnail = "/logo/logo-gihex.png"
+defaultThumbnail = "/images/def_th.png"
 
 
 [[params.BlogContentKinds]]
-name = "News"
+name = "Apps"
 maxShow = 6
-section = "news"
-url = "/news"
-defaultThumbnail = "/logo/logo-gihex.png"
+section = "apps"
+url = "/apps"
+defaultThumbnail = "/images/def_th.png"
 
 
 # menu navbar

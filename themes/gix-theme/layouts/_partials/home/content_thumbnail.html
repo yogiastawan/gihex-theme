@@ -12,7 +12,9 @@
         {{- end -}}
     </figure>
     <div class="card-body">
-        <a class="card-title" href="{{ .RelPermalink }}">{{ .LinkTitle | truncate 120 }}</a>
+        <a class="card-title tooltip" href="{{ .RelPermalink }}" data-tip="{{.LinkTitle}}">
+            {{ .LinkTitle | truncate 120 }}
+        </a>
         <p>{{ .Summary | truncate 120 }}</p>
         <div class="card-actions justify-end">
             <a class="btn btn-primary" href="{{ .RelPermalink }}">Read...</a>

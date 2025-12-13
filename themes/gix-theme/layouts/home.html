@@ -1,22 +1,22 @@
 {{ define "main" }}
 
 
-<div class="hero bg-base-200 min-h-screen">
-  <div class="hero-content flex-col lg:flex-row">
-    <img src="{{ site.Params.BlogSettings.logo }}" class="max-w-sm rounded-lg shadow-2xl" />
-    <div>
-      <h1 class="text-5xl font-bold">{{site.Title}}</h1>
-      <p class="py-6">
-        {{.Content}}
-      </p>
-      <a class="btn btn-primary" href="#anchor-first">Let's Explore</a>
+<div class="hero bg-base-200 rounded-lg shadow-sm mt-4">
+  <div class="hero-content flex-col">
+    <h1 class="text-5xl font-bold">{{site.Title}}</h1>
+    <div class="py-6">
+      {{.Content}}
     </div>
+    <a class="btn btn-primary" href="#anchor-first">Let's Explore</a>
   </div>
 </div>
 
 {{ range site.Params.BlogContentKinds }}
 {{/* Store the pages for the current section in a variable */}}
 {{ $pagesInSection := where site.RegularPages ".Section" .section }}
+{{ $pt := "pt-0" }}
+
+
 
 <section id="anchor-first" class="rounded-xl bg-base-200 shadow-md p-4 mt-4 flex flex-row items-center">
   <a class="text-xl font-semibold grow" href="{{- .url -}}">{{- .name -}}</a>
@@ -25,7 +25,8 @@
   {{ if $pagesInSection}}
   {{/* if there's content */}}
   <div class="flex flex-row flex-wrap gap-2 justify-center">
-    {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first .maxShow $pagesInSection) "contentThumbnail"
+    {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first .maxShow $pagesInSection)
+    "contentThumbnail"
     .defaultThumbnail) }}
   </div>
   {{/* show button more if len is more than maxShow */}}
@@ -34,7 +35,7 @@
   {{end}}
   {{ else }}
   {{/* no content */}}
-  <div class="hero bg-base-200 min-h-28">
+  <div class="hero bg-base-300 min-h-28">
     <div class="hero-content text-center">
       <div class="max-w-md">
         <h1 class="text-5xl font-bold">Sorry...</h1>
