@@ -1,0 +1,23 @@
+{{/* Store pages in section: All pages in posts or All pages in news */}}
+{{- $pagesInSection := .pagesInSection }}
+{{- $contentThumbnail:= .contentThumbnail }}
+
+{{ range $pagesInSection }}
+{{/* <p>{{$contentThumbnail}}</p> */}}
+<div class="card bg-base-100 w-full sm:w-96 shadow-md">
+    <figure class="w-full h-48 bg-base-200">
+        {{- $imagePath := .Params.image | default $contentThumbnail -}}
+        {{- with $imagePath -}}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full h-full object-cover" />
+        {{- end -}}
+    </figure>
+    <div class="card-body">
+        <a class="card-title" href="{{ .RelPermalink }}">{{ .LinkTitle | truncate 120 }}</a>
+        <p>{{ .Summary | truncate 120 }}</p>
+        <div class="card-actions justify-end">
+            <a class="btn btn-primary" href="{{ .RelPermalink }}">Read...</a>
+        </div>
+    </div>
+</div>
+
+{{ end }}

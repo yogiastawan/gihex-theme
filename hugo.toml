@@ -7,6 +7,24 @@ theme = "gix-theme"
 logo = "/logo/logo-gihex.png"
 footerTitle = "GixTheme.com"
 
+# kind of content
+[[params.BlogContentKinds]]
+name = "Posts"
+maxShow = 2
+section = "posts"
+url = "/posts"
+defaultThumbnail = "/logo/logo-gihex.png"
+
+
+[[params.BlogContentKinds]]
+name = "News"
+maxShow = 6
+section = "news"
+url = "/news"
+defaultThumbnail = "/logo/logo-gihex.png"
+
+
+# menu navbar
 [menus]
 
 [[menus.main]]

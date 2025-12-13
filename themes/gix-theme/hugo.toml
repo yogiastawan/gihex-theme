@@ -6,6 +6,22 @@ title = 'My New Hugo Site'
 logo = "/"
 footerTitle = "Gix Theme"
 
+# kind of content
+[[params.BlogContentKinds]]
+name = "Posts"
+maxShow = 2
+section = "posts"
+url = "/posts"
+defaultThumbnail = "/images/bryce-canyon.jpg"
+
+[[params.BlogContentKinds]]
+name = "News"
+maxShow = 6
+section = "news"
+url = "/news"
+defaultThumbnail = "/images/bryce-canyon.jpg"
+
+
 [menus]
 [[menus.main]]
 name = 'Home'
