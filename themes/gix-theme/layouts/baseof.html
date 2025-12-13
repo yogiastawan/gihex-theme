@@ -9,8 +9,10 @@
   <header>
     {{ partial "header.html" . }}
   </header>
-  <main class="max-w-5xl">
-    {{ block "main" . }}{{ end }}
+  <main>
+    <div class="max-w-7xl my-4 mx-auto">
+      {{ block "main" . }}{{ end }}
+    </div>
   </main>
   <footer>
     {{ partial "footer.html" . }}

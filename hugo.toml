@@ -7,12 +7,38 @@ theme = "gix-theme"
 logo = "/logo/logo-gihex.png"
 
 [menus]
-[[menus.main]]
-name = 'Home'
-pageRef = '/'
-weight = 1
 
 [[menus.main]]
 name = 'Apps'
 pageRef = '/Apps'
+weight = 1
+
+[[menus.main]]
+name = 'Blog'
+pageRef = '/blog'
 weight = 2
+
+[[menus.main]]
+name = 'About'
+pageRef = '/about'
+weight = 3
+
+[[menus.secondary]]
+name = 'Home'
+pageRef = '/'
+weight = 1
+
+[[menus.secondary]]
+name = 'Apps'
+pageRef = '/Apps'
+weight = 2
+
+[[menus.secondary]]
+name = 'Blog'
+pageRef = '/blog'
+weight = 3
+
+[[menus.secondary]]
+name = 'About'
+pageRef = '/about'
+weight = 4

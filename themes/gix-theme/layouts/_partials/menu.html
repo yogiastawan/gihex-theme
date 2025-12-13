@@ -11,35 +11,37 @@ Renders a menu for the given menu ID.
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-<nav class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm p-0">
+  <nav class="navbar max-w-7xl mx-auto ">
 
-  <div class="navbar-start">
-    <a href="/"><img class="w-10 h-10" src="{{site.Params.BlogSettings.logo}}" alt="Gihex Logo"></a>
-    <a href="/" class="btn btn-ghost text-xl">{{site.Title}}</a>
-  </div>
-
-  {{/* desktop */}}
-  <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
-  </div>
-
-  {{/* on mobile */}}
-  <div class=" navbar-end dropdown dropdown-bottom lg:hidden">
-    <div tabindex="0" role="button" class="btn btn-ghost ">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-      </svg>
+    <div class="navbar-start">
+      <a href="/"><img class="w-10 h-10" src="{{site.Params.BlogSettings.logo}}" alt="Gihex Logo"></a>
+      <a href="/" class="btn btn-ghost text-xl">{{site.Title}}</a>
     </div>
 
-    {{/* menu dropdown */}}
-    <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
-  </div>
+    {{/* desktop */}}
+    <div class="navbar-end hidden md:flex">
+      <ul class="menu menu-horizontal px-1">
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+    </div>
 
-</nav>
+    {{/* on mobile */}}
+    <div class=" navbar-end dropdown dropdown-bottom md:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </div>
+
+      {{/* menu dropdown */}}
+      <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+    </div>
+
+  </nav>
+</div>
 {{- end }}
 
 {{- define "_partials/inline/menu/walk.html" }}
