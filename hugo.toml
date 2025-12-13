@@ -1,0 +1,18 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Gix Theme'
+theme = "gix-theme"
+
+[params.BlogSettings]
+logo = "/logo/logo-gihex.png"
+
+[menus]
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 1
+
+[[menus.main]]
+name = 'Apps'
+pageRef = '/Apps'
+weight = 2

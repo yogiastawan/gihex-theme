@@ -1,0 +1,70 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+<nav class="navbar bg-base-100 shadow-sm">
+
+  <div class="navbar-start">
+    <a href="/"><img class="w-10 h-10" src="{{site.Params.BlogSettings.logo}}" alt="Gihex Logo"></a>
+    <a href="/" class="btn btn-ghost text-xl">{{site.Title}}</a>
+  </div>
+
+  {{/* desktop */}}
+  <div class="navbar-end hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+  </div>
+
+  {{/* on mobile */}}
+  <div class=" navbar-end dropdown dropdown-bottom lg:hidden">
+    <div tabindex="0" role="button" class="btn btn-ghost ">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+      </svg>
+    </div>
+
+    {{/* menu dropdown */}}
+    <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+  </div>
+
+</nav>
+{{- end }}
+
+{{- define "_partials/inline/menu/walk.html" }}
+{{- $page := .page }}
+{{- range .menuEntries }}
+{{- $attrs := dict "href" .URL }}
+{{- if $page.IsMenuCurrent .Menu . }}
+{{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+{{- else if $page.HasMenuCurrent .Menu .}}
+{{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+{{- end }}
+{{- $name := .Name }}
+{{- with .Identifier }}
+{{- with T . }}
+{{- $name = . }}
+{{- end }}
+{{- end }}
+<li>
+  <a {{- range $k, $v :=$attrs }} {{- with $v }} {{- printf " %s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end -}}>{{
+    $name }}</a>
+  {{- with .Children }}
+  <ul>
+    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+  </ul>
+  {{- end }}
+</li>
+{{- end }}
+{{- end }}
