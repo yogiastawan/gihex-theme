@@ -5,6 +5,7 @@ theme = "gix-theme"
 
 [params.BlogSettings]
 logo = "/logo/logo-gihex.png"
+footerTitle = "GixTheme.com"
 
 [menus]
 
