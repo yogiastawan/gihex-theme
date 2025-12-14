@@ -24,7 +24,7 @@
 <section class="p-4 flex flex-col">
   {{ if $pagesInSection}}
   {{/* if there's content */}}
-  <div class="flex flex-row flex-wrap gap-2 justify-center">
+  <div class="flex flex-row flex-wrap gap-4 justify-center">
     {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first .maxShow $pagesInSection)
     "contentThumbnail"
     .defaultThumbnail) }}
