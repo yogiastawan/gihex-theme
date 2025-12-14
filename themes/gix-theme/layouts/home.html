@@ -26,8 +26,7 @@
   {{/* if there's content */}}
   <div class="flex flex-row flex-wrap gap-4 justify-center">
     {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first .maxShow $pagesInSection)
-    "contentThumbnail"
-    .defaultThumbnail) }}
+    ) }}
   </div>
   {{/* show button more if len is more than maxShow */}}
   {{ if gt (len $pagesInSection) .maxShow }}

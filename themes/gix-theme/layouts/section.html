@@ -18,9 +18,8 @@
     {{/* if there's content */}}
     <div class="flex flex-row flex-wrap gap-4 justify-center">
         {{/* We need to find the correct default thumbnail from the site config */}}
-        {{ $sectionConfig := index (where site.Params.BlogContentKinds "section" .Section) 0 }}
-        {{ partial "home/content_thumbnail.html" (dict "pagesInSection" $pagesInSection "contentThumbnail"
-        $sectionConfig.defaultThumbnail) }}
+
+        {{ partial "home/content_thumbnail.html" (dict "pagesInSection" $pagesInSection) }}
     </div>
 
     {{ else }}

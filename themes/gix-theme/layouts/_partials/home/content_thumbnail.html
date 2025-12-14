@@ -1,11 +1,11 @@
 {{/* Store pages in section: All pages in posts or All pages in news */}}
 {{- $pagesInSection := .pagesInSection }}
-{{- $contentThumbnail:= .contentThumbnail }}
 
 {{ range $pagesInSection }}
-{{/* <p>{{$contentThumbnail}}</p> */}}
 <div class="card bg-base-100 w-full sm:w-96 shadow-md">
     <figure class="w-full h-48 bg-base-200">
+        {{- $sectionConfig := index (where site.Params.BlogContentKinds "section" .Section) 0 -}}
+        {{- $contentThumbnail := $sectionConfig.defaultThumbnail -}}
         {{- $imagePath := .Params.image | default $contentThumbnail -}}
         {{- with $imagePath -}}
         <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full h-full object-cover" />
