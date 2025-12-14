@@ -3,12 +3,15 @@ languageCode = 'en-us'
 title = 'Gix Theme'
 theme = "gix-theme"
 
-[pagination]
-pagerSize = 3
+[params.pagination]
+# Number of items for term pages (e.g., /tags/blue/)
+termPaginate = 15
+sectionPaginate = 3
 
 [params.BlogSettings]
 logo = "/logo/logo-gihex.png"
 footerTitle = "GixTheme.com"
+
 
 # kind of content
 [[params.BlogContentKinds]]

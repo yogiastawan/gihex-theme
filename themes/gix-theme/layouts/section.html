@@ -10,8 +10,10 @@
 </div>
 
 {{/* Paginate the pages in this section. The number of items per page is set in hugo.toml */}}
-{{ $paginator := .Paginate .Pages }}
+{{ $pageSize := site.Params.pagination.sectionPaginate}}
+{{ $paginator := .Paginate .Pages (int $pageSize) }}
 {{ $pagesInSection := $paginator.Pages }}
+
 
 <section class="p-4 flex flex-col">
     {{ if $pagesInSection}}

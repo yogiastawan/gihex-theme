@@ -2,9 +2,18 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
+
+# Sets the default number of items per page.
+[params.pagination]
+# /tags/blue
+termPaginate = 15
+# /posts
+sectionPaginate = 12
+
 [params.BlogSettings]
 logo = "/"
 footerTitle = "Gix Theme"
+
 
 # kind of content
 [[params.BlogContentKinds]]
