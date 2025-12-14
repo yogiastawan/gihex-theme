@@ -1,0 +1,31 @@
+{{- /*
+Custom pagination partial that uses DaisyUI's join component.
+@context {page} .
+*/}}
+{{ $paginator := .Paginator }}
+
+{{ if gt $paginator.TotalPages 1 }}
+<div class="join">
+    {{/* Previous page button */}}
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="join-item btn btn-square">«</a>
+    {{ else }}
+    <button class="join-item btn btn-square btn-disabled">«</button>
+    {{ end }}
+
+    {{/* Page number buttons */}}
+    {{ range $paginator.Pagers }}
+    {{/* Use btn-disabled to disable buttons on the current page */}}
+    <a href="{{ .URL }}" class="join-item btn  btn-square {{ if eq . $paginator }}btn-disabled{{ end }}">{{
+        .PageNumber
+        }}</a>
+    {{ end }}
+
+    {{/* Next page button */}}
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="join-item btn btn-square">»</a>
+    {{ else }}
+    <button class="join-item btn btn-square btn-disabled">»</button>
+    {{ end }}
+</div>
+{{ end }}

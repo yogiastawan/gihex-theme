@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Gix Theme'
 theme = "gix-theme"
 
+[pagination]
+pagerSize = 3
+
 [params.BlogSettings]
 logo = "/logo/logo-gihex.png"
 footerTitle = "GixTheme.com"
