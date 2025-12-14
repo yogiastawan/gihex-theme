@@ -11,13 +11,35 @@ For a given taxonomy, renders a list of terms assigned to the page.
 {{- $taxonomy := .taxonomy }}
 
 {{- with $page.GetTerms $taxonomy }}
-  {{- $label := (index . 0).Parent.LinkTitle }}
-  <div>
-    <div>{{ $label }}:</div>
-    <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-  </div>
+{{- $label := (index . 0).Parent.LinkTitle }}
+<div class="flex items-center gap-2">
+  {{ if eq $taxonomy "tags" }}
+  <svg fill="currentColor" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="16px" height="16px" viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve">
+    <path id="XMLID_1184_"
+      d="M75.2,51.6c0-1.1-0.4-2.1-1.2-2.8L36.7,12c-0.7-0.7-1.6-1.1-2.6-1.1L4.3,9C3.1,8.9,2,9.4,1.2,10.2  C0.4,11-0.1,12.1,0,13.3l1.9,29.3c0.1,1,0.5,1.9,1.2,2.6l37.4,36.7c0.8,0.8,1.8,1.2,2.8,1.2c1,0,2-0.4,2.8-1.2L74,54.4  C74.8,53.7,75.2,52.7,75.2,51.6z M43.3,73.4L9.9,40.5L8.3,17.3l23.8,1.5l33.4,32.8L43.3,73.4z M26,26.2c1.1,1.1,1.8,2.7,1.8,4.2  c0,1.6-0.6,3.1-1.8,4.2c-1.1,1.1-2.7,1.8-4.3,1.8c-1.6,0-3.1-0.6-4.3-1.8c-1.1-1.1-1.8-2.7-1.8-4.2c0-1.6,0.6-3.1,1.8-4.2  c1.1-1.1,2.7-1.8,4.3-1.8C23.3,24.4,24.9,25.1,26,26.2z M92,51.6c0,0.9-0.4,1.8-1,2.5L63.1,81.5c-0.7,0.7-1.6,1-2.5,1  c-0.9,0-1.8-0.3-2.5-1c-1.4-1.4-1.4-3.6,0-4.9l25.4-24.9L48.6,17.4c-1.4-1.4-1.4-3.6,0-4.9c1.4-1.4,3.6-1.4,5,0L91,49.1  C91.6,49.8,92,50.7,92,51.6z" />
+  </svg>
+  {{ else if eq $taxonomy "categories" }}
+  <svg width="16px" height="16px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <g id="Layer_2" data-name="Layer 2">
+      <g id="invisible_box" data-name="invisible box">
+        <rect width="48" height="48" fill="none" />
+      </g>
+      <g id="icons_Q2" data-name="icons Q2">
+        <path
+          d="M24,7.7,29.3,16H18.6L24,7.7M24,2a2.1,2.1,0,0,0-1.7,1L13.2,17a2.3,2.3,0,0,0,0,2,1.9,1.9,0,0,0,1.7,1H33a2.1,2.1,0,0,0,1.7-1,1.8,1.8,0,0,0,0-2l-9-14A1.9,1.9,0,0,0,24,2Z" />
+        <path d="M43,43H29a2,2,0,0,1-2-2V27a2,2,0,0,1,2-2H43a2,2,0,0,1,2,2V41A2,2,0,0,1,43,43ZM31,39H41V29H31Z" />
+        <path d="M13,28a6,6,0,1,1-6,6,6,6,0,0,1,6-6m0-4A10,10,0,1,0,23,34,10,10,0,0,0,13,24Z" />
+      </g>
+    </g>
+  </svg>
+  {{ end }}
+  <ul class="flex flex-wrap gap-1">
+    {{- range . }}
+    <li>
+      <a class="badge badge-soft badge-primary" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </li>
+    {{- end }}
+  </ul>
+</div>
 {{- end }}

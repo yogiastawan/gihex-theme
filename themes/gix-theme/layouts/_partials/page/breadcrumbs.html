@@ -1,0 +1,47 @@
+{{- with . }}
+{{/* desktop */}}
+<div class="hidden md:block breadcrumbs text-sm">
+    <ul>
+        <li>
+            <a href="{{ .Site.Home.RelPermalink }}" class="link link-hover text-base-content/80">
+                Home
+            </a>
+        </li>
+        {{- range .Ancestors.Reverse }}
+        {{- if not .IsHome }}
+        <li>
+            <a href="{{ .RelPermalink }}" class="link link-hover text-base-content/80">
+                {{- or .LinkTitle .Title -}}
+            </a>
+        </li>
+        {{- end }}
+        {{- end }}
+        <li class="font-semibold text-base-content">
+            <span class="block max-w-48 truncate">{{- or .LinkTitle .Title -}}</span>
+        </li>
+    </ul>
+</div>
+
+{{/* mobile */}}
+<div class="md:hidden breadcrumbs text-xs overflow-x-auto whitespace-nowrap">
+    <ul class="flex-nowrap">
+        <li>
+            <a href="{{ .Site.Home.RelPermalink }}" class="link link-hover text-base-content/80">
+                Home
+            </a>
+        </li>
+        {{- range .Ancestors.Reverse }}
+        {{- if not .IsHome }}
+        <li>
+            <a href="{{ .RelPermalink }}" class="link link-hover text-base-content/80">
+                {{- or .LinkTitle .Title -}}
+            </a>
+        </li>
+        {{- end }}
+        {{- end }}
+        <li class="font-semibold text-base-content">
+            <span class="block max-w-36 truncate no-underline">{{- or .LinkTitle .Title -}}</span>
+        </li>
+    </ul>
+</div>
+{{- end }}
