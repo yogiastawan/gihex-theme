@@ -1,0 +1,24 @@
+{{- $class := .Get "class" | default "" -}}
+{{- $title := .Get "title" | default "" -}}
+{{- $level := .Get "level" | default 2 | int -}}
+
+{{- $heading := printf "h%d" $level -}}
+{{- $fontSize:="text-xl" -}}
+
+{{ if eq $level 1 }}
+{{- $fontSize:="text-2xl" -}}
+{{ else if eq $level 2 }}
+{{- $fontSize:="text-xl"}}
+{{ else if eq $level 3 }}
+{{- $fontSize:="text-lg"}}
+{{ else }}
+{{- $fontSize:="text-base"}}
+{{ end }}
+
+<section class="{{ $class }}">
+    {{- if $title -}}
+    {{- $h:=printf "<%s class=\"%s font-semibold\">%s</%s>" $heading $fontSize $title $heading -}}
+    {{ $h | safeHTML}}
+    {{- end -}}
+    {{ .Inner |safeHTML }}
+</section>

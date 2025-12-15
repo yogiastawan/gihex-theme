@@ -1,0 +1,18 @@
+{{/*
+Shortcode untuk membuat daftar (list) yang fleksibel (ol atau ul).
+Parameter:
+- type: "ol" (ordered) atau "ul" (unordered). Default: "ul".
+- class: Kelas CSS tambahan.
+*/}}
+{{- $type := .Get "type" | default "ul" -}}
+{{- $class := .Get "class" -}}
+{{- $listClass := cond (eq $type "ol") "list-decimal list-outside ml-4" "list-disc list-outside ml-4" -}}
+<div class="{{$class}}">
+    {{- $list := printf "<%s class=\"%s\">" $type $listClass -}}
+        {{- range split .Inner "\n" -}}
+        {{- if gt (len .) 0 -}}
+        {{- $list = printf "%s<li>%s</li>" $list (. | chomp) -}}
+        {{- end -}}
+        {{- end -}}
+        {{- printf "%s</%s>" $list $type | safeHTML -}}
+</div>

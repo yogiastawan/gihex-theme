@@ -5,3 +5,6 @@ title = ''
 +++
 
 Hello, this is my Blog
+
+{{<section>}}
+{{</section>}}
