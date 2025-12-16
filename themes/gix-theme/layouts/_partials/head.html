@@ -1,9 +1,15 @@
+{{- $sectionConfig := index (where site.Params.BlogContentKinds "section" .Section) 0 -}}
+{{- $contentThumbnail := $sectionConfig.defaultThumbnail -}}
+{{- $imagePath := .Params.image | default $contentThumbnail -}}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {{/* meta tag */}}
 <meta name="author" content="{{.Params.author}}">
-<meta name="description" content="{{.Description}}">
+{{ with .Description }}
+<meta name="description" content="{{.}}">
+{{ end }}
 {{ with .Params.keywords }}
 <meta name="keywords" content="{{ delimit . `, ` }}">
 {{ end }}
@@ -13,10 +19,10 @@
 <meta property="og:url" content="{{.Permalink}}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:title" content="{{.Title}}">
-<meta property="og:description" content="{{.Description}}">
-{{- $sectionConfig := index (where site.Params.BlogContentKinds "section" .Section) 0 -}}
-{{- $contentThumbnail := $sectionConfig.defaultThumbnail -}}
-{{- $imagePath := .Params.image | default $contentThumbnail -}}
+{{ with .Description }}
+<meta property="og:description" content="{{.}}">
+{{ end }}
+
 {{- with $imagePath -}}
 <meta property="og:image" content="{{ . | absURL }}">
 {{- end -}}
@@ -24,7 +30,9 @@
 {{/* Twitter Cards */}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{.Title}}">
-<meta name="twitter:description" content="{{.Description}}">
+{{ with .Description }}
+<meta name="twitter:description" content="{{.}}">
+{{ end }}
 {{- with $imagePath -}}
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end -}}
@@ -36,6 +44,12 @@
 {{ with site.Params.favicon }}
 <link rel="icon" href="{{ . | relURL }}">
 {{ end }}
+
+{{/* RSS Feed */}}
+{{ with site.Home.OutputFormats.Get "RSS" -}}
+<link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ site.Title }}">
+<link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ site.Title }}">
+{{- end }}
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
 {{/* {{ partialCached "head/css.html" . }} */}}
