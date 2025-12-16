@@ -8,7 +8,7 @@ Custom pagination partial that uses DaisyUI's join component.
 <div class="join">
     {{/* Previous page button */}}
     {{ if $paginator.HasPrev }}
-    <a href="{{ $paginator.Prev.URL }}" class="join-item btn btn-square">«</a>
+    <a href="{{ $paginator.Prev.URL }}" rel="prev" class="join-item btn btn-square">«</a>
     {{ else }}
     <button class="join-item btn btn-square btn-disabled">«</button>
     {{ end }}
@@ -23,7 +23,7 @@ Custom pagination partial that uses DaisyUI's join component.
 
     {{/* Next page button */}}
     {{ if $paginator.HasNext }}
-    <a href="{{ $paginator.Next.URL }}" class="join-item btn btn-square">»</a>
+    <a href="{{ $paginator.Next.URL }}" rel="next" class="join-item btn btn-square">»</a>
     {{ else }}
     <button class="join-item btn btn-square btn-disabled">»</button>
     {{ end }}
