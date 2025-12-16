@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<div class="hero bg-base-200 rounded-lg shadow-sm my-4">
+    <section class="hero-content flex-col">
+        <h1 class="text-5xl font-bold">Oops! {{ i18n "sorry" }}...</h1>
+        <p class="py-6 text-2xl font-semibold">
+            {{ i18n "page_not_found" }}
+        </p>
+        <p>{{ i18n "looking_for_something" }}</p>
+        <div class="join join-horizontal">
+            {{ range .Site.Params.BlogContentKinds }}
+            <a href="{{- .url -}}" class="btn btn-outline btn-secondary join-item">{{.name}}</a>
+            {{ end }}
+        </div>
+        <div class="divider">Or</div>
+        <a class="btn btn-primary" href="{{ .Site.Home.RelPermalink }}">{{ i18n "to_home" }}</a>
+    </section>
+</div>
+
+{{end}}
