@@ -4,6 +4,9 @@ draft = true
 title = 'Tentang Kami'
 
 layout= 'page_p'
+
+translationKey="about"
+
 +++
 
 {{<section title="Tentang Gix Theme">}}

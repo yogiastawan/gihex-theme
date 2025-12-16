@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {{/* meta tag */}}
-<meta name="author" content="{{.Params.author}}">
+{{ with .Params.author }}
+<meta name="author" content="{{.}}">
+{{ end }}
 {{ with .Description }}
 <meta name="description" content="{{.}}">
 {{ end }}
@@ -43,6 +45,26 @@
 {{/* Favicon */}}
 {{ with site.Params.favicon }}
 <link rel="icon" href="{{ . | relURL }}">
+{{ end }}
+
+{{/* alternate */}}
+
+{{$translations:=.AllTranslations}}
+{{$permalink:=.Permalink}}
+{{ if gt (len $translations) 0 }}
+
+{{/* loop all language translation */}}
+{{ range $translations }}
+<link rel="alternate" href="{{.Permalink}}" hreflang="{{.Language.Lang}}">
+{{ end }}
+
+{{/* seek en language page and set default lang */}}
+{{ range $translations }}
+{{ if eq .Language.Lang "en" }}
+<link rel="alternate" href="{{.Permalink}}" hreflang="x-default">
+{{ end }}
+{{ end }}
+
 {{ end }}
 
 {{/* RSS Feed */}}

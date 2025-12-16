@@ -7,3 +7,5 @@
 * Content description must be 150-160 words
 
 * Content title must be 50-60 words
+
+* Use `translationKey` to multi language

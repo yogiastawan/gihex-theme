@@ -4,6 +4,9 @@ draft = true
 title = 'About Us'
 
 layout= 'page_p'
+
+translationKey="about"
+
 +++
 
 {{<section title="About Gix Theme">}}
