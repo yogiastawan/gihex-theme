@@ -21,3 +21,15 @@ other = "Halaman yang Anda cari tidak ada."
 
 [looking_for_something]
 other = "Sedang mencari sesuatu? Silakan kunjungi"
+
+[ads]
+other = "Iklan"
+
+[related_post]
+other = "Postingan Terkait"
+
+[previous]
+other = "Sebelumnya"
+
+[next]
+other = "Selanjutnya"

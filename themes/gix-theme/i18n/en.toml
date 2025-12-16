@@ -21,3 +21,15 @@ other = "The page you’re looking for isn’t here."
 
 [looking_for_something]
 other = "Looking for something? Please visit our"
+
+[ads]
+other = "Advertisment"
+
+[related_post]
+other = "Related Posts"
+
+[previous]
+other = "Previous"
+
+[next]
+other = "Next"
