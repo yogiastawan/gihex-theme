@@ -17,7 +17,7 @@ other = "Read..."
 other = "Go to Home"
 
 [page_not_found]
-other = "The page you’re looking for isn’t here."
+other = "The page you’re looking for is not here."
 
 [looking_for_something]
 other = "Looking for something? Please visit our"
@@ -33,3 +33,15 @@ other = "Previous"
 
 [next]
 other = "Next"
+
+[tag]
+other = "Tags"
+
+[category]
+other = "Categories"
+
+[author]
+other = "Author"
+
+[date_created]
+other = "Date created"

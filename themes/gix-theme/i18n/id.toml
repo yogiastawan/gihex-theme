@@ -33,3 +33,15 @@ other = "Sebelumnya"
 
 [next]
 other = "Selanjutnya"
+
+[tag]
+other = "Tag"
+
+[category]
+other = "Kategori"
+
+[author]
+other = "Penulis"
+
+[date_created]
+other = "Tanggal dibuat"

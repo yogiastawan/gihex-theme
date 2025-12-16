@@ -4,6 +4,7 @@ date = 2023-02-15T10:00:00-07:00
 draft = false
 tags = ['red', 'green']
 image="/images/bryce-canyon.jpg"
+categories=['Post', 'Blog']
 
 author="Gix"
 +++
