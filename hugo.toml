@@ -96,13 +96,13 @@ weight = 4
 name = "Postingan"
 maxShow = 5
 section = "posts"
-url = "/posts"
+url = "/id/posts"
 defaultThumbnail = "/images/def_th.png"
 [[languages.id.params.BlogContentKinds]]
 name = "Aplikasi"
 maxShow = 6
 section = "apps"
-url = "/apps"
+url = "/id/apps"
 defaultThumbnail = "/images/def_th.png"
 
 
