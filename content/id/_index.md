@@ -1,10 +1,10 @@
 +++
 date = '2025-12-07T20:07:06+08:00'
-draft = true
+draft = false
 title = ''
 +++
 
-Hello, this is my Blog
+Hello, Ini adalah blog saya
 
 {{<section>}}
 {{</section>}}

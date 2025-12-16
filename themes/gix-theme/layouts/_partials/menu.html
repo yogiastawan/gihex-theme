@@ -15,8 +15,9 @@ Renders a menu for the given menu ID.
   <nav class="navbar max-w-7xl mx-auto ">
 
     <div class="navbar-start">
-      <a href="/"><img class="w-10 h-10" src="{{site.Params.BlogSettings.logo}}" alt="Gihex Logo"></a>
-      <a href="/" class="btn btn-ghost text-xl">{{site.Title}}</a>
+      <a href="{{site.Home.Permalink}}"><img class="w-10 h-10" src="{{site.Params.BlogSettings.logo}}"
+          alt="Gihex Logo"></a>
+      <a href="{{site.Home.Permalink}}" class="btn btn-ghost text-xl">{{site.Title}}</a>
     </div>
 
     {{/* desktop */}}

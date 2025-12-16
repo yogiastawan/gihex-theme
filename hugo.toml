@@ -1,7 +1,110 @@
 baseURL = 'https://example.org/'
-languageCode = 'en-us'
 title = 'Gix Theme'
 theme = "gix-theme"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[languages]
+# English
+[languages.en]
+languageCode = 'en-us'
+weight = 1
+contentDir = "content/en"
+[[languages.en.menu.main]]
+name = 'Apps'
+pageRef = '/apps'
+weight = 1
+[[languages.en.menu.main]]
+name = 'Blog'
+pageRef = '/posts'
+weight = 2
+[[languages.en.menu.main]]
+name = 'About'
+pageRef = '/about'
+weight = 3
+
+[[languages.en.menu.secondary]]
+name = 'Home'
+pageRef = '/'
+weight = 1
+[[languages.en.menu.secondary]]
+name = 'Apps'
+pageRef = '/apps'
+weight = 2
+[[languages.en.menu.secondary]]
+name = 'Blog'
+pageRef = '/posts'
+weight = 3
+[[languages.en.menu.secondary]]
+name = 'About'
+pageRef = '/about'
+weight = 4
+
+# kind of content
+[[languages.en.params.BlogContentKinds]]
+name = "Posts"
+maxShow = 5
+section = "posts"
+url = "/posts"
+defaultThumbnail = "/images/def_th.png"
+[[languages.en.params.BlogContentKinds]]
+name = "Apps"
+maxShow = 6
+section = "apps"
+url = "/apps"
+defaultThumbnail = "/images/def_th.png"
+
+# Indonesia
+
+[languages.id]
+languageCode = 'id'
+weight = 2
+contentDir = "content/id"
+[[languages.id.menu.main]]
+name = 'Aplikasi'
+pageRef = '/apps'
+weight = 1
+[[languages.id.menu.main]]
+name = 'Blog'
+pageRef = '/posts'
+weight = 2
+[[languages.id.menu.main]]
+name = 'Tentang'
+pageRef = '/about'
+weight = 3
+
+[[languages.id.menu.secondary]]
+name = 'Beranda'
+pageRef = '/'
+weight = 1
+[[languages.id.menu.secondary]]
+name = 'Aplikasi'
+pageRef = '/apps'
+weight = 2
+[[languages.id.menu.secondary]]
+name = 'Blog'
+pageRef = '/posts'
+weight = 3
+[[languages.id.menu.secondary]]
+name = 'Tentang'
+pageRef = '/about'
+weight = 4
+
+# kind of content
+[[languages.id.params.BlogContentKinds]]
+name = "Postingan"
+maxShow = 5
+section = "posts"
+url = "/posts"
+defaultThumbnail = "/images/def_th.png"
+[[languages.id.params.BlogContentKinds]]
+name = "Aplikasi"
+maxShow = 6
+section = "apps"
+url = "/apps"
+defaultThumbnail = "/images/def_th.png"
+
 
 [params.pagination]
 # Number of items for term pages (e.g., /tags/blue/)
@@ -11,59 +114,3 @@ sectionPaginate = 3
 [params.BlogSettings]
 logo = "/logo/logo-gihex.png"
 footerTitle = "GixTheme.com"
-
-
-# kind of content
-[[params.BlogContentKinds]]
-name = "Posts"
-maxShow = 5
-section = "posts"
-url = "/posts"
-defaultThumbnail = "/images/def_th.png"
-
-
-[[params.BlogContentKinds]]
-name = "Apps"
-maxShow = 6
-section = "apps"
-url = "/apps"
-defaultThumbnail = "/images/def_th.png"
-
-
-# menu navbar
-[menus]
-
-[[menus.main]]
-name = 'Apps'
-pageRef = '/Apps'
-weight = 1
-
-[[menus.main]]
-name = 'Blog'
-pageRef = '/blog'
-weight = 2
-
-[[menus.main]]
-name = 'About'
-pageRef = '/about'
-weight = 3
-
-[[menus.secondary]]
-name = 'Home'
-pageRef = '/'
-weight = 1
-
-[[menus.secondary]]
-name = 'Apps'
-pageRef = '/Apps'
-weight = 2
-
-[[menus.secondary]]
-name = 'Blog'
-pageRef = '/blog'
-weight = 3
-
-[[menus.secondary]]
-name = 'About'
-pageRef = '/about'
-weight = 4

@@ -1,0 +1,23 @@
+[btn_explore]
+other = "Let's Explore"
+
+[btn_more]
+other = "More"
+
+[sorry]
+other = "Maaf"
+
+[no_content_section]
+other = "There's no content to display in this section."
+
+[read]
+other = "Read..."
+
+[to_home]
+other = "Go to Home"
+
+[page_not_found]
+other = "The page you’re looking for isn’t here."
+
+[looking_for_something]
+other = "Looking for something? Please visit our"

@@ -7,7 +7,7 @@
     <div class="py-6">
       {{.Content}}
     </div>
-    <a class="btn btn-primary" href="#anchor-first">Let's Explore</a>
+    <a class="btn btn-primary" href="#anchor-first">{{i18n "btn_explore"}}</a>
   </section>
 </div>
 
@@ -28,16 +28,16 @@
   </div>
   {{/* show button more if len is more than maxShow */}}
   {{ if gt (len $pagesInSection) .maxShow }}
-  <a href="{{- .url -}}" class="btn btn-secondary mt-4 mx-auto">More {{ .name }}...</a>
+  <a href="{{- .url -}}" class="btn btn-secondary mt-4 mx-auto">{{ i18n "btn_more" }} {{ .name }}...</a>
   {{end}}
   {{ else }}
   {{/* no content */}}
   <div class="hero bg-base-300 min-h-28">
     <div class="hero-content text-center">
       <section class="max-w-md">
-        <h1 class="text-5xl font-bold">Sorry...</h1>
+        <h1 class="text-5xl font-bold">{{i18n "sorry"}}...</h1>
         <p class="py-6">
-          There's no content to display in this section.
+          {{i18n "no_content_section"}}
         </p>
       </section>
     </div>

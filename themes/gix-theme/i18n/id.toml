@@ -1,0 +1,23 @@
+[btn_explore]
+other = "Mulai Menjelajah"
+
+[btn_more]
+other = "Semua"
+
+[sorry]
+other = "Maaf"
+
+[no_content_section]
+other = "Tidak ada konten yang dapat ditampilkan di bagian ini."
+
+[read]
+other = "Baca Selengkapnya..."
+
+[to_home]
+other = "Ke Beranda"
+
+[page_not_found]
+other = "Halaman yang Anda cari tidak ada."
+
+[looking_for_something]
+other = "Sedang mencari sesuatu? Silakan kunjungi"
