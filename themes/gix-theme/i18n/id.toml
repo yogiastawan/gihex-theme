@@ -45,3 +45,21 @@ other = "Penulis"
 
 [date_created]
 other = "Tanggal dibuat"
+
+[no_content_term]
+other = "Tidak ada konten yang dapat ditampilkan di"
+
+[term_content_0]
+other = "Belum ada konten di dalam"
+
+[term_there_are]
+other = "Terdapat"
+
+[term_there_is]
+other = "Terdapat"
+
+[term_posts_under]
+other = "konten dalam"
+
+[term_post_under]
+other = "konten dalam"

@@ -45,3 +45,21 @@ other = "Author"
 
 [date_created]
 other = "Date created"
+
+[no_content_term]
+other = "There's no content to display under"
+
+[term_content_0]
+other = "Currently there's no post under"
+
+[term_there_are]
+other = "There are"
+
+[term_there_is]
+other = "There is"
+
+[term_posts_under]
+other = "posts under"
+
+[term_post_under]
+other = "post under"
