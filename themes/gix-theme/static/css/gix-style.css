@@ -2620,6 +2620,15 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .badge-dash {
+    @layer daisyui.l1.l2 {
+      color: var(--badge-color);
+      --badge-bg: #0000;
+      background-image: none;
+      border-color: currentColor;
+      border-style: dashed;
+    }
+  }
   .badge-soft {
     @layer daisyui.l1.l2 {
       color: var(--badge-color, var(--color-base-content));
@@ -2645,6 +2654,12 @@
   }
   .mask-repeat {
     mask-repeat: repeat;
+  }
+  .fill-primary {
+    fill: var(--color-primary);
+  }
+  .fill-secondary {
+    fill: var(--color-secondary);
   }
   .object-cover {
     object-fit: cover;
@@ -2719,6 +2734,12 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .badge-sm {
+    @layer daisyui.l1.l2 {
+      --size: calc(var(--size-selector, 0.25rem) * 5);
+      font-size: 0.75rem;
+    }
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
@@ -2732,6 +2753,19 @@
   }
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+  .link-accent {
+    @layer daisyui.l1.l2 {
+      color: var(--color-accent);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--color-accent);
+          @supports (color: color-mix(in lab, red, red)) {
+            color: color-mix(in oklab, var(--color-accent) 80%, #000);
+          }
+        }
+      }
+    }
   }
   .text-base-content {
     color: var(--color-base-content);
@@ -2750,6 +2784,9 @@
   }
   .text-neutral-content {
     color: var(--color-neutral-content);
+  }
+  .text-primary {
+    color: var(--color-primary);
   }
   .text-red-300 {
     color: var(--color-red-300);
@@ -2842,6 +2879,24 @@
       }
     }
   }
+  .badge-accent {
+    @layer daisyui.l1.l2 {
+      --badge-color: var(--color-accent);
+      --badge-fg: var(--color-accent-content);
+    }
+  }
+  .badge-info {
+    @layer daisyui.l1.l2 {
+      --badge-color: var(--color-info);
+      --badge-fg: var(--color-info-content);
+    }
+  }
+  .badge-neutral {
+    @layer daisyui.l1.l2 {
+      --badge-color: var(--color-neutral);
+      --badge-fg: var(--color-neutral-content);
+    }
+  }
   .badge-primary {
     @layer daisyui.l1.l2 {
       --badge-color: var(--color-primary);
@@ -2852,6 +2907,12 @@
     @layer daisyui.l1.l2 {
       --badge-color: var(--color-secondary);
       --badge-fg: var(--color-secondary-content);
+    }
+  }
+  .badge-success {
+    @layer daisyui.l1.l2 {
+      --badge-color: var(--color-success);
+      --badge-fg: var(--color-success-content);
     }
   }
   .btn-primary {

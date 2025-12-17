@@ -119,3 +119,8 @@ sectionPaginate = 3
 [params.BlogSettings]
 logo = "/logo/logo-gihex.png"
 footerTitle = "GixTheme.com"
+
+[taxonomies]
+author = "authors"
+category = "categories"
+tag = "tags"

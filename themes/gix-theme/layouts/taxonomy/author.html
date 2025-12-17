@@ -1,0 +1,57 @@
+{{ define "main" }}
+
+
+
+<div class="hero bg-base-200 rounded-lg shadow-sm mt-4">
+    <section class="hero-content w-full flex-col items-start text-left">
+        <h1 class="text-5xl font-bold">Profile</h1>
+        <p>{{.Title}}</p>
+        <p class="py-6">
+            {{ $pageCount := len .Pages }}
+            {{ if eq $pageCount 0 }}
+            {{i18n "term_content_0"}} {{ .Data.Singular }} {{ .Title }}.
+            {{ else if eq $pageCount 1 }}
+            {{i18n "term_there_is"}} {{$pageCount}} {{i18n "term_post_under"}} {{ .Data.Singular }} {{ .Title }}.
+            {{ else }}
+            {{i18n "term_there_are"}} {{$pageCount}} {{i18n "term_posts_under"}} {{ .Data.Singular }} {{ .Title }}.
+            {{ end }}
+        </p>
+    </section>
+</div>
+
+{{ .Content }}
+
+{{/* Paginate the pages in this section. The number of items per page is set in hugo.toml */}}
+{{ $pageSize := site.Params.pagination.termPaginate}}
+{{ $paginator := .Paginate .Pages (int $pageSize) }}
+{{ $pagesInSection := $paginator.Pages }}
+
+<div class="p-4 flex flex-col">
+    {{ if $pagesInSection}}
+    {{/* if there's content */}}
+    <div class="flex flex-row flex-wrap gap-4 justify-center">
+        {{/* The partial will now handle finding the correct default thumbnail for each page */}}
+        {{ partial "home/content_thumbnail.html" (dict "pagesInSection" $pagesInSection) }}
+    </div>
+
+    {{ else }}
+    {{/* no content */}}
+    <div class="hero bg-base-300 min-h-28">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold">{{i18n "sorry"}}...</h1>
+                <p class="py-6">
+                    {{i18n "no_content_term"}}{{ .Data.Singular }} {{ .Title }}.
+                </p>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+{{/* Pagination */}}
+<div class="flex justify-center my-8">
+    {{/* Render Hugo's built-in pagination template */}}
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

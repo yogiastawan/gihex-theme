@@ -6,7 +6,7 @@ tags = ['red']
 
 translationKey="post8"
 
-author="Yogi Astawan"
+authors=["Yogi Astawan", "John Doe"]
 +++
 
 Post 8 Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.

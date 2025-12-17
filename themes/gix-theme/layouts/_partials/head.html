@@ -6,12 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {{/* meta tag */}}
-{{ with .Params.author }}
-<meta name="author" content="{{.}}">
+{{ with .Params.authors }}
+<meta name="author" content="{{ delimit . `, `}}">
 {{ end }}
-{{ with .Description }}
-<meta name="description" content="{{.}}">
-{{ end }}
+<meta name="description" content="{{(.Description | default .Summary)}}">
 {{ with .Params.keywords }}
 <meta name="keywords" content="{{ delimit . `, ` }}">
 {{ end }}
@@ -21,9 +19,8 @@
 <meta property="og:url" content="{{.Permalink}}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:title" content="{{.Title}}">
-{{ with .Description }}
-<meta property="og:description" content="{{.}}">
-{{ end }}
+
+<meta property="og:description" content="{{(.Description | default .Summary)}}">
 
 {{- with $imagePath -}}
 <meta property="og:image" content="{{ . | absURL }}">
@@ -32,9 +29,7 @@
 {{/* Twitter Cards */}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{.Title}}">
-{{ with .Description }}
-<meta name="twitter:description" content="{{.}}">
-{{ end }}
+<meta name="twitter:description" content="{{(.Description | default .Summary)}}">
 {{- with $imagePath -}}
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end -}}
@@ -79,7 +74,7 @@
 <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ site.Title }}">
 {{- end }}
 
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{site.Title}}{{ end }}</title>
 
 {{/* website schema on home only */}}
 {{ if .IsHome }}
