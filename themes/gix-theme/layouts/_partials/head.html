@@ -40,15 +40,20 @@
 {{- end -}}
 
 {{/* canonical */}}
+{{ if eq .Kind "404" }}
+<link rel="canonical" href="{{site.Home.Permalink}}">
+
+{{else}}
 <link rel="canonical" href="{{.Permalink}}">
+{{ end }}
 
 {{/* Favicon */}}
 {{ with site.Params.favicon }}
 <link rel="icon" href="{{ . | relURL }}">
 {{ end }}
 
-{{/* alternate */}}
-
+{{/* alternate languages */}}
+{{ if (not (eq .Kind "404")) }}
 {{$translations:=.AllTranslations}}
 {{$permalink:=.Permalink}}
 {{ if gt (len $translations) 0 }}
@@ -65,6 +70,7 @@
 {{ end }}
 {{ end }}
 
+{{ end }}
 {{ end }}
 
 {{/* RSS Feed */}}
