@@ -44,7 +44,7 @@ other = "Categories"
 other = "Author"
 
 [date_created]
-other = "Date created"
+other = "Date published"
 
 [no_content_term]
 other = "There's no content to display under"
@@ -63,3 +63,6 @@ other = "posts under"
 
 [term_post_under]
 other = "post under"
+
+[language]
+other = "Language"

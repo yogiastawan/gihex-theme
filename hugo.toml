@@ -9,6 +9,7 @@ defaultContentLanguageInSubdir = false
 # English
 [languages.en]
 languageCode = 'en-us'
+languageName = "English"
 weight = 1
 contentDir = "content/en"
 [[languages.en.menu.main]]
@@ -59,6 +60,7 @@ defaultThumbnail = "/images/def_th.png"
 
 [languages.id]
 languageCode = 'id'
+languageName = "Indonesia"
 weight = 2
 contentDir = "content/id"
 [[languages.id.menu.main]]

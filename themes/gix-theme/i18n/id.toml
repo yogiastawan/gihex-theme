@@ -44,7 +44,7 @@ other = "Kategori"
 other = "Penulis"
 
 [date_created]
-other = "Tanggal dibuat"
+other = "Tanggal terbit"
 
 [no_content_term]
 other = "Tidak ada konten yang dapat ditampilkan di"
@@ -63,3 +63,6 @@ other = "konten dalam"
 
 [term_post_under]
 other = "konten dalam"
+
+[language]
+other = "Bahasa"
