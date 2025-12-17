@@ -18,9 +18,9 @@ Gix Theme is a blog that provides informative content about microcontroller/embe
 {{<section class="mt-2" title="Purpose">}}
 <p>The main purposes of Gix Theme are:</p>
 {{<list type="ol" class="ml-4" >}}
-To provide informative and valuable content
-To serve as an easily accessible reference source
-To consistently share knowledge with readers
+To provide informative and valuable content.
+To serve as an easily accessible reference source.
+To consistently share knowledge with readers.
 {{</list>}}
 {{</section>}}
 

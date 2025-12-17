@@ -75,11 +75,18 @@
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
 
-{{/* website schema */}}
-{{ partial "page/website_schema.html" }}
+{{/* website schema on home only */}}
+{{ if .IsHome }}
+{{ partial "home/website_schema.html" }}
+{{ end }}
+
+{{/* webpage schema */}}
+{{ if and (not .IsHome) (not (eq .Kind "404")) }}
+{{ partial "page/webpage_schema.html" . }}
+{{ end }}
 
 {{/* breadcrumbs data */}}
-{{ if not .IsHome }}
+{{ if and (not .IsHome) (not (eq .Kind "404")) }}
 {{ partial "page/breadcrumbs_data.html" . }}
 {{ end }}
 

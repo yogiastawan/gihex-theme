@@ -1,6 +1,9 @@
 baseURL = 'https://example.org/'
 title = 'Gix Theme'
 theme = "gix-theme"
+timeZone = "Asia/Makassar"
+# for auto last mod
+enableGitInfo = true
 
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
@@ -59,7 +62,7 @@ defaultThumbnail = "/images/def_th.png"
 # Indonesia
 
 [languages.id]
-languageCode = 'id'
+languageCode = 'id-ID'
 languageName = "Indonesia"
 weight = 2
 contentDir = "content/id"

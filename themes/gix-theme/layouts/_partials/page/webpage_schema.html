@@ -1,0 +1,23 @@
+{{- $schema :=(dict
+"@context" "https://schema.org"
+"@type" "WebPage"
+"name" .Title
+"url" .Permalink
+"description" .Description
+"inLanguage" .Language.Lang
+"author" (dict "type" "Person" "name" .Params.author)
+"datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+"dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+"isPartOf" (dict
+"@type" "WebSite"
+"name" site.Title
+"url" site.Home.Permalink
+)
+)
+-}}
+
+<script type="application/ld+json">
+    {{
+        $schema | jsonify
+    }}
+</script>
