@@ -1,0 +1,41 @@
+{{- $items := slice -}}
+{{- $pos := 1 -}}
+
+{{/* Add Home page */}}
+{{- $items = $items | append ( dict
+"@type" "ListItem"
+"position" $pos
+"name" (i18n "home" | default "Home")
+"item" .Site.Home.Permalink
+) -}}
+{{- $pos = add $pos 1 -}}
+
+{{/* Add ancestors */}}
+{{- range .Ancestors.Reverse -}}
+{{- if not .IsHome -}}
+{{- $items = $items | append ( dict
+"@type" "ListItem"
+"position" $pos
+"name" (or .LinkTitle .Title)
+"item" .Permalink
+) -}}
+{{- $pos = add $pos 1 -}}
+{{- end -}}
+{{- end -}}
+
+{{/* Add current page */}}
+{{- $items = $items | append ( dict
+"@type" "ListItem"
+"position" $pos
+"name" (or .LinkTitle .Title)
+"item" .Permalink
+) -}}
+
+<script type="application/ld+json">
+    {{dict
+        "@context" "https://schema.org"
+        "@type" "BreadcrumbList"
+        "itemListElement" $items
+        | jsonify
+    }}
+</script>

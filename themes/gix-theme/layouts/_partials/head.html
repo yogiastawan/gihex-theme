@@ -74,6 +74,16 @@
 {{- end }}
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
+
+{{/* website schema */}}
+{{ partial "page/website_schema.html" }}
+
+{{/* breadcrumbs data */}}
+{{ if not .IsHome }}
+{{ partial "page/breadcrumbs_data.html" . }}
+{{ end }}
+
 {{/* {{ partialCached "head/css.html" . }} */}}
 {{ partialCached "head/js.html" . }}
+
 <link rel="stylesheet" href="/css/gix-style.css">
