@@ -90,3 +90,6 @@ other = "Kebijakan privasi"
 
 [cookie_policy]
 other = "Kebijakan cookie"
+
+[rss]
+other = "Berlangganan RSS {{.}}"

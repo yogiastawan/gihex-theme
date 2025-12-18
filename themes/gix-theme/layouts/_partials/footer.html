@@ -10,8 +10,14 @@
 
     <nav>
         <h6 class="footer-title">Website</h6>
-        {{ with site.Home.OutputFormats.Get "RSS" -}}
-        <a href="{{ .Permalink }}" class="link link-hover"> RSS feed</a>
+        {{ with .OutputFormats.Get "RSS" -}}
+        {{ $name := (or $.Page.LinkTitle $.Page.Title) }}
+
+        {{ if $.Page.IsHome }}
+        {{ $name = $.Site.Title }}
+        {{ end }}
+
+        <a href="{{ .Permalink }}" class="link link-hover"> {{i18n "rss" $name }}</a>
         {{- end }}
         <a href="{{ `configure-cookie` | relLangURL }}">{{i18n "configure_cookie" | default "Configure cookie" }}</a>
         <a href="{{ `about-us` | relLangURL }}" class="link link-hover">{{ i18n "about_us" | default "About us" }}</a>
