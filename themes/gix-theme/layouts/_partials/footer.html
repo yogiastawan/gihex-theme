@@ -1,39 +1,48 @@
-<footer class="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
-    <aside>
-        <img class="size-14" src="{{site.Params.BlogSettings.logo}}" alt="{{.Site.Title}} logo">
-        <a href="{{.Site.Home.Permalink}}" class="font-semibold text-xl">
-            {{- site.Params.BlogSettings.footerTitle -}}
-        </a>
-        <p class="text-base font-normal">Copyright &copy; {{ now.Year }} - All right reserved.</p>
+<footer class="bg-base-300 text-base-content p-10">
+    <div class="footer sm:footer-horizontal  max-w-7xl mx-auto">
 
-    </aside>
+        <aside>
+            <img class="size-14" src="{{site.Params.BlogSettings.logo}}" alt="{{.Site.Title}} logo">
+            <a href="{{.Site.Home.Permalink}}" class="font-semibold text-xl">
+                {{- site.Params.BlogSettings.footerTitle -}}
+            </a>
+            <p class="text-base font-normal">Copyright &copy; {{ now.Year }} - All right reserved.</p>
 
-    <nav>
-        <h6 class="footer-title">Website</h6>
+        </aside>
+
+        <nav>
+            <h6 class="footer-title">Website</h6>
 
 
 
-        <a href="{{ `configure-cookie` | relLangURL }}">{{i18n "configure_cookie" | default "Configure cookie" }}</a>
-        <a href="{{ `about-us` | relLangURL }}" class="link link-hover">{{ i18n "about_us" | default "About us" }}</a>
-        <a href="{{ `contact-us` | relLangURL }}" class="link link-hover">{{ i18n "contact_us" | default "Contact us"
-            }}</a>
+            <a href="{{ `configure-cookie` | relLangURL }}">{{i18n "configure_cookie" | default "Configure cookie"
+                }}</a>
+            <a href="{{ `about-us` | relLangURL }}" class="link link-hover">{{ i18n "about_us" | default "About us"
+                }}</a>
+            <a href="{{ `contact-us` | relLangURL }}" class="link link-hover">{{ i18n "contact_us" | default `Contact
+                us`
+                }}</a>
 
-        {{ with .OutputFormats.Get "RSS" -}}
-        {{ $name := (or $.Page.LinkTitle $.Page.Title) }}
+            {{ with .OutputFormats.Get "RSS" -}}
+            {{ $name := (or $.Page.LinkTitle $.Page.Title) }}
 
-        {{ if $.Page.IsHome }}
-        {{ $name = $.Site.Title }}
-        {{ end }}
-        <a href="{{ .Permalink }}" class="link link-hover"> {{i18n "rss" $name }}</a>
-        {{- end }}
-    </nav>
+            {{ if $.Page.IsHome }}
+            {{ $name = $.Site.Title }}
+            {{ end }}
+            <a href="{{ .Permalink }}" class="link link-hover"> {{i18n "rss" $name }}</a>
+            {{- end }}
+        </nav>
 
-    <nav>
-        <h6 class="footer-title">Legal</h6>
-        <a href="{{ `term-of-use` | relLangURL }}">{{i18n "term_of_use" | default "Term of use" }}</a>
-        <a href="{{ `privacy-policy` | relLangURL }}" class="link link-hover">{{i18n "privacy_policy" | default `Privacy
-            policy` }}</a>
-        <a href="{{ `cookie-policy` | relLangURL }}" class="link link-hover">{{i18n "cookie_policy" | default `Cookie
-            policy`}}</a>
-    </nav>
+        <nav>
+            <h6 class="footer-title">Legal</h6>
+            <a href="{{ `term-of-use` | relLangURL }}">{{i18n "term_of_use" | default "Term of use" }}</a>
+            <a href="{{ `privacy-policy` | relLangURL }}" class="link link-hover">{{i18n "privacy_policy" | default
+                `Privacy
+                policy` }}</a>
+            <a href="{{ `cookie-policy` | relLangURL }}" class="link link-hover">{{i18n "cookie_policy" | default
+                `Cookie
+                policy`}}</a>
+        </nav>
+    </div>
+
 </footer>
