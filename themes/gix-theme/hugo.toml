@@ -2,6 +2,18 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
+[mediaTypes]
+[mediaTypes."text/plain"]
+suffixes = ["txt"]
+
+[outputFormats]
+[outputFormats.RobotsTxt]
+baseName = "robots"
+isPlainText = true
+
+[outputs]
+home = ["html", "rss", "RobotsTxt"]
+
 # taxonomi
 [taxonomies]
 author = "authors"

@@ -1,0 +1,14 @@
+User-agent: *
+Allow : /
+
+# Block
+Disallow: /404.html
+Disallow: /seacrh/
+Disallow: /api/
+
+# Google image
+User-agent: Googlebot-Image
+Allow: /images/
+
+# sitemap
+Sitemap: {{ "sitemap.xml" | absLangURL }}

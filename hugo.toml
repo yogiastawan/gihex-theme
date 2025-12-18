@@ -8,6 +8,16 @@ enableGitInfo = true
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
+[mediaTypes]
+[mediaTypes."text/plain"]
+suffixes = ["txt"]
+
+[outputFormats]
+[outputFormats.RobotsTxt]
+baseName = "robots"
+isPlainText = true
+mediaType = "text/plain"
+
 [languages]
 # English
 [languages.en]
@@ -15,6 +25,9 @@ languageCode = 'en-us'
 languageName = "English"
 weight = 1
 contentDir = "content/en"
+# create robots.txt only on root 
+outputs.home = ["HTML", "RSS", "RobotsTxt"]
+
 [[languages.en.menu.main]]
 name = 'Apps'
 pageRef = '/apps'
