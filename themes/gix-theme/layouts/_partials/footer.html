@@ -1,7 +1,22 @@
 <footer class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
     <aside>
-        <a href="{{.Site.Home.RelPermalink}}" class="font-semibold text-xl">{{- site.Params.BlogSettings.footerTitle
+        <a href="{{.Site.Home.Permalink}}" class="font-semibold text-xl">{{- site.Params.BlogSettings.footerTitle
             -}}</a>
         <p>Copyright © {{ now.Year }} - All right reserved.</p>
     </aside>
+    {{/* <nav>
+        <h6 class="footer-title">{{ i18n "feeds" }}</h6>
+        <div class="grid grid-flow-col gap-4">
+            {{ with site.Home.OutputFormats.Get "RSS" -}}
+            <a href="{{ .Permalink }}" class="tooltip" data-tip="RSS Feed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11a9 9 0 0 1 9 9" />
+                    <path d="M4 4a16 16 0 0 1 16 16" />
+                    <circle cx="5" cy="19" r="1" />
+                </svg>
+            </a>
+            {{- end }}
+        </div>
+    </nav> */}}
 </footer>

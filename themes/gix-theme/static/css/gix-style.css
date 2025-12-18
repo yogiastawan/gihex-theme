@@ -1262,176 +1262,6 @@
       }
     }
   }
-  .select {
-    @layer daisyui.l1.l2.l3 {
-      border: var(--border) solid #0000;
-      position: relative;
-      display: inline-flex;
-      flex-shrink: 1;
-      appearance: none;
-      align-items: center;
-      gap: calc(0.25rem * 1.5);
-      background-color: var(--color-base-100);
-      padding-inline-start: calc(0.25rem * 3);
-      padding-inline-end: calc(0.25rem * 7);
-      vertical-align: middle;
-      width: clamp(3rem, 20rem, 100%);
-      height: var(--size);
-      font-size: 0.875rem;
-      touch-action: manipulation;
-      border-start-start-radius: var(--join-ss, var(--radius-field));
-      border-start-end-radius: var(--join-se, var(--radius-field));
-      border-end-start-radius: var(--join-es, var(--radius-field));
-      border-end-end-radius: var(--join-ee, var(--radius-field));
-      background-image: linear-gradient(45deg, #0000 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, #0000 50%);
-      background-position: calc(100% - 20px) calc(1px + 50%), calc(100% - 16.1px) calc(1px + 50%);
-      background-size: 4px 4px, 4px 4px;
-      background-repeat: no-repeat;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      box-shadow: 0 1px var(--input-color) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
-      @supports (color: color-mix(in lab, red, red)) {
-        box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), #0000) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
-      }
-      border-color: var(--input-color);
-      --input-color: var(--color-base-content);
-      @supports (color: color-mix(in lab, red, red)) {
-        --input-color: color-mix(in oklab, var(--color-base-content) 20%, #0000);
-      }
-      --size: calc(var(--size-field, 0.25rem) * 10);
-      [dir="rtl"] & {
-        background-position: calc(0% + 12px) calc(1px + 50%), calc(0% + 16px) calc(1px + 50%);
-        &::picker(select), select::picker(select) {
-          translate: 0.5rem 0;
-        }
-      }
-      &[multiple] {
-        height: auto;
-        overflow: auto;
-        padding-block: calc(0.25rem * 3);
-        padding-inline-end: calc(0.25rem * 3);
-        background-image: none;
-      }
-      select {
-        margin-inline-start: calc(0.25rem * -3);
-        margin-inline-end: calc(0.25rem * -7);
-        width: calc(100% + 2.75rem);
-        appearance: none;
-        padding-inline-start: calc(0.25rem * 3);
-        padding-inline-end: calc(0.25rem * 7);
-        height: calc(100% - calc(var(--border) * 2));
-        align-items: center;
-        background: inherit;
-        border-radius: inherit;
-        border-style: none;
-        &:focus, &:focus-within {
-          --tw-outline-style: none;
-          outline-style: none;
-          @media (forced-colors: active) {
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-          }
-        }
-        &:not(:last-child) {
-          margin-inline-end: calc(0.25rem * -5.5);
-          background-image: none;
-        }
-      }
-      &:focus, &:focus-within {
-        --input-color: var(--color-base-content);
-        box-shadow: 0 1px var(--input-color);
-        @supports (color: color-mix(in lab, red, red)) {
-          box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), #0000);
-        }
-        outline: 2px solid var(--input-color);
-        outline-offset: 2px;
-        isolation: isolate;
-        z-index: 1;
-      }
-      &:has(> select[disabled]), &:is(:disabled, [disabled]), fieldset:disabled & {
-        cursor: not-allowed;
-        border-color: var(--color-base-200);
-        background-color: var(--color-base-200);
-        color: var(--color-base-content);
-        @supports (color: color-mix(in lab, red, red)) {
-          color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
-        }
-        &::placeholder {
-          color: var(--color-base-content);
-          @supports (color: color-mix(in lab, red, red)) {
-            color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
-          }
-        }
-      }
-      &:has(> select[disabled]) > select[disabled] {
-        cursor: not-allowed;
-      }
-      &, & select {
-        @supports (appearance: base-select) {
-          appearance: base-select;
-        }
-        @supports (appearance: base-select) {
-          &::picker(select) {
-            appearance: base-select;
-          }
-        }
-        &::picker(select) {
-          color: inherit;
-          max-height: min(24rem, 70dvh);
-          margin-inline: 0.5rem;
-          translate: -0.5rem 0;
-          border: var(--border) solid var(--color-base-200);
-          margin-block: calc(0.25rem * 2);
-          border-radius: var(--radius-box);
-          padding: calc(0.25rem * 2);
-          background-color: inherit;
-          box-shadow: 0 2px calc(var(--depth) * 3px) -2px oklch(0% 0 0/0.2);
-          box-shadow: 0 20px 25px -5px rgb(0 0 0 / calc(var(--depth) * 0.1)), 0 8px 10px -6px rgb(0 0 0 / calc(var(--depth) * 0.1));
-        }
-        &::picker-icon {
-          display: none;
-        }
-        optgroup {
-          padding-top: 0.5em;
-          option {
-            &:nth-child(1) {
-              margin-top: 0.5em;
-            }
-          }
-        }
-        option {
-          border-radius: var(--radius-field);
-          padding-inline: calc(0.25rem * 3);
-          padding-block: calc(0.25rem * 1.5);
-          transition-property: color, background-color;
-          transition-duration: 0.2s;
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          white-space: normal;
-          &:not(:disabled) {
-            &:hover, &:focus-visible {
-              cursor: pointer;
-              background-color: var(--color-base-content);
-              @supports (color: color-mix(in lab, red, red)) {
-                background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
-              }
-              --tw-outline-style: none;
-              outline-style: none;
-              @media (forced-colors: active) {
-                outline: 2px solid transparent;
-                outline-offset: 2px;
-              }
-            }
-            &:active {
-              background-color: var(--color-neutral);
-              color: var(--color-neutral-content);
-              box-shadow: 0 2px calc(var(--depth) * 3px) -2px var(--color-neutral);
-            }
-          }
-        }
-      }
-    }
-  }
   .collapse-title {
     @layer daisyui.l1.l2.l3 {
       grid-column-start: 1;
@@ -1485,6 +1315,23 @@
           --tw-content: none;
           content: var(--tw-content);
         }
+      }
+    }
+  }
+  .avatar {
+    @layer daisyui.l1.l2.l3 {
+      position: relative;
+      display: inline-flex;
+      vertical-align: middle;
+      & > div {
+        display: block;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
     }
   }
@@ -1982,9 +1829,6 @@
   .z-1 {
     z-index: 1;
   }
-  .z-\[1\] {
-    z-index: 1;
-  }
   .hero {
     @layer daisyui.l1.l2.l3 {
       display: grid;
@@ -1995,18 +1839,6 @@
       & > * {
         grid-column-start: 1;
         grid-row-start: 1;
-      }
-    }
-  }
-  .hero-overlay {
-    @layer daisyui.l1.l2.l3 {
-      grid-column-start: 1;
-      grid-row-start: 1;
-      height: 100%;
-      width: 100%;
-      background-color: var(--color-neutral);
-      @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--color-neutral) 50%, transparent);
       }
     }
   }
@@ -2039,6 +1871,9 @@
         gap: calc(0.25rem * 4);
       }
     }
+  }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
   }
   .filter {
     @layer daisyui.l1.l2.l3 {
@@ -2407,6 +2242,10 @@
       height: var(--size);
     }
   }
+  .size-\[1\.2em\] {
+    width: 1.2em;
+    height: 1.2em;
+  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
@@ -2416,8 +2255,17 @@
   .h-48 {
     height: calc(var(--spacing) * 48);
   }
+  .h-\[1\.2em\] {
+    height: 1.2em;
+  }
+  .h-\[12\.em\] {
+    height: 12.em;
+  }
   .h-full {
     height: 100%;
+  }
+  .max-h-52 {
+    max-height: calc(var(--spacing) * 52);
   }
   .min-h-28 {
     min-height: calc(var(--spacing) * 28);
@@ -2431,8 +2279,20 @@
   .w-16 {
     width: calc(var(--spacing) * 16);
   }
+  .w-24 {
+    width: calc(var(--spacing) * 24);
+  }
   .w-52 {
     width: calc(var(--spacing) * 52);
+  }
+  .w-96 {
+    width: calc(var(--spacing) * 96);
+  }
+  .w-\[1\.2em\] {
+    width: 1.2em;
+  }
+  .w-\[12\.em\] {
+    width: 12.em;
   }
   .w-full {
     width: 100%;
@@ -2445,6 +2305,9 @@
   }
   .max-w-48 {
     max-width: calc(var(--spacing) * 48);
+  }
+  .max-w-80 {
+    max-width: calc(var(--spacing) * 80);
   }
   .max-w-md {
     max-width: var(--container-md);
@@ -2531,8 +2394,17 @@
   .items-center {
     align-items: center;
   }
+  .items-end {
+    align-items: flex-end;
+  }
   .items-start {
     align-items: flex-start;
+  }
+  .justify-around {
+    justify-content: space-around;
+  }
+  .justify-baseline {
+    justify-content: baseline;
   }
   .justify-between {
     justify-content: space-between;
@@ -2542,6 +2414,9 @@
   }
   .justify-end {
     justify-content: flex-end;
+  }
+  .justify-items-start {
+    justify-items: start;
   }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
@@ -2554,6 +2429,9 @@
   }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   .space-y-2 {
     :where(& > :not(:last-child)) {
@@ -2573,34 +2451,6 @@
   .scroll-smooth {
     scroll-behavior: smooth;
   }
-  .menu-md {
-    @layer daisyui.l1.l2 {
-      :where(li:not(.menu-title) > *:not(ul, details, .menu-title)), :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-        border-radius: var(--radius-field);
-        padding-inline: calc(0.25rem * 3);
-        padding-block: calc(0.25rem * 1.5);
-        font-size: 0.875rem;
-      }
-      .menu-title {
-        padding-inline: calc(0.25rem * 3);
-        padding-block: calc(0.25rem * 2);
-      }
-    }
-  }
-  .menu-sm {
-    @layer daisyui.l1.l2 {
-      :where(li:not(.menu-title) > *:not(ul, details, .menu-title)), :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-        border-radius: var(--radius-field);
-        padding-inline: calc(0.25rem * 2.5);
-        padding-block: calc(0.25rem * 1);
-        font-size: 0.75rem;
-      }
-      .menu-title {
-        padding-inline: calc(0.25rem * 3);
-        padding-block: calc(0.25rem * 2);
-      }
-    }
-  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -2609,6 +2459,9 @@
   }
   .rounded-box {
     border-radius: var(--radius-box);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
@@ -2619,15 +2472,6 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
-  }
-  .badge-dash {
-    @layer daisyui.l1.l2 {
-      color: var(--badge-color);
-      --badge-bg: #0000;
-      background-image: none;
-      border-color: currentColor;
-      border-style: dashed;
-    }
   }
   .badge-soft {
     @layer daisyui.l1.l2 {
@@ -2673,17 +2517,8 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
-  .menu-title {
-    @layer daisyui.l1.l2.l3 {
-      padding-inline: calc(0.25rem * 3);
-      padding-block: calc(0.25rem * 2);
-      color: var(--color-base-content);
-      @supports (color: color-mix(in lab, red, red)) {
-        color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
-      }
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
   }
   .px-1 {
     padding-inline: calc(var(--spacing) * 1);
@@ -2691,14 +2526,23 @@
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
+  }
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
   }
   .pt-0 {
     padding-top: calc(var(--spacing) * 0);
   }
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
+  }
   .pb-6 {
     padding-bottom: calc(var(--spacing) * 6);
+  }
+  .pl-0 {
+    padding-left: calc(var(--spacing) * 0);
   }
   .text-center {
     text-align: center;
@@ -2754,19 +2598,6 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
-  .link-accent {
-    @layer daisyui.l1.l2 {
-      color: var(--color-accent);
-      @media (hover: hover) {
-        &:hover {
-          color: var(--color-accent);
-          @supports (color: color-mix(in lab, red, red)) {
-            color: color-mix(in oklab, var(--color-accent) 80%, #000);
-          }
-        }
-      }
-    }
-  }
   .text-base-content {
     color: var(--color-base-content);
   }
@@ -2781,12 +2612,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       color: color-mix(in oklab, var(--color-base-content) 80%, transparent);
     }
-  }
-  .text-neutral-content {
-    color: var(--color-neutral-content);
-  }
-  .text-primary {
-    color: var(--color-primary);
   }
   .text-red-300 {
     color: var(--color-red-300);
@@ -2879,24 +2704,6 @@
       }
     }
   }
-  .badge-accent {
-    @layer daisyui.l1.l2 {
-      --badge-color: var(--color-accent);
-      --badge-fg: var(--color-accent-content);
-    }
-  }
-  .badge-info {
-    @layer daisyui.l1.l2 {
-      --badge-color: var(--color-info);
-      --badge-fg: var(--color-info-content);
-    }
-  }
-  .badge-neutral {
-    @layer daisyui.l1.l2 {
-      --badge-color: var(--color-neutral);
-      --badge-fg: var(--color-neutral-content);
-    }
-  }
   .badge-primary {
     @layer daisyui.l1.l2 {
       --badge-color: var(--color-primary);
@@ -2907,12 +2714,6 @@
     @layer daisyui.l1.l2 {
       --badge-color: var(--color-secondary);
       --badge-fg: var(--color-secondary-content);
-    }
-  }
-  .badge-success {
-    @layer daisyui.l1.l2 {
-      --badge-color: var(--color-success);
-      --badge-fg: var(--color-success-content);
     }
   }
   .btn-primary {
@@ -2955,6 +2756,36 @@
   .md\:hidden {
     @media (width >= 48rem) {
       display: none;
+    }
+  }
+  .md\:flex-col {
+    @media (width >= 48rem) {
+      flex-direction: column;
+    }
+  }
+  .md\:flex-row {
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:items-end {
+    @media (width >= 48rem) {
+      align-items: flex-end;
+    }
+  }
+  .md\:items-start {
+    @media (width >= 48rem) {
+      align-items: flex-start;
+    }
+  }
+  .md\:gap-6 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 6);
+    }
+  }
+  .md\:text-start {
+    @media (width >= 48rem) {
+      text-align: start;
     }
   }
   .lg\:block {

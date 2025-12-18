@@ -4,6 +4,9 @@
 {{ $types = (dict
 "@type" "BlogPosting"
 "headline" .Title
+"mainEntityOfPage" (dict
+"@type" "WebPage"
+"url" .Permalink)
 )
 }}
 {{ else }}

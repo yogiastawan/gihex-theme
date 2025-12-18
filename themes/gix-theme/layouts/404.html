@@ -12,7 +12,7 @@
             <a href="{{- .url -}}" class="btn btn-outline btn-secondary join-item">{{.name}}</a>
             {{ end }}
         </div>
-        <div class="divider">Or</div>
+        <div class="divider">{{ i18n "or" }}</div>
         <a class="btn btn-primary" href="{{ .Site.Home.RelPermalink }}">{{ i18n "to_home" }}</a>
     </section>
 </div>

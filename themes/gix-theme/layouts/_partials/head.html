@@ -2,6 +2,16 @@
 {{- $contentThumbnail := $sectionConfig.defaultThumbnail -}}
 {{- $imagePath := .Params.image | default $contentThumbnail -}}
 
+{{- $title := .Title -}}
+
+{{ if .IsHome }}
+{{ $title = site.Title}}
+{{ else if lt (len .Title) 50}}
+{{$title = printf "%s | %s" .Title site.Title}}
+{{else}}
+{{$title = .Title}}
+{{ end }}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,7 +28,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{.Permalink}}">
 <meta property="og:site_name" content="{{ site.Title }}">
-<meta property="og:title" content="{{.Title}}">
+<meta property="og:title" content="{{$title}}">
 
 <meta property="og:description" content="{{(.Description | default .Summary)}}">
 
@@ -28,7 +38,7 @@
 
 {{/* Twitter Cards */}}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{.Title}}">
+<meta name="twitter:title" content="{{$title}}">
 <meta name="twitter:description" content="{{(.Description | default .Summary)}}">
 {{- with $imagePath -}}
 <meta name="twitter:image" content="{{ . | absURL }}">
@@ -74,7 +84,7 @@
 <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ site.Title }}">
 {{- end }}
 
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{site.Title}}{{ end }}</title>
+<title>{{$title}}</title>
 
 {{/* website schema on home only */}}
 {{ if .IsHome }}

@@ -16,7 +16,7 @@
 {{ $pagesInSection := where site.RegularPages ".Section" .section }}
 {{ $pt := "pt-0" }}
 
-<div id="anchor-first" class="rounded-xl bg-base-200 shadow-md p-4 mt-4 flex flex-row items-center">
+<div id="anchor-first" class="rounded-xl bg-base-200 shadow-md p-4 mt-4">
   <a class="text-xl font-semibold grow" href="{{- .url -}}">{{- .name -}}</a>
 </div>
 <div class="p-4 flex flex-col">
