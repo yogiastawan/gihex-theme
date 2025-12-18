@@ -1,8 +1,14 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<p>taxonomy</p>
-{{ .Content }}
-{{ range .Pages }}
-<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-{{ end }}
+
+<div id="anchor-first" class="rounded-xl bg-base-200 shadow-md p-4 mt-4 flex flex-row items-center">
+    <h1 class="text-xl font-semibold">{{- .Title -}}</h1>
+</div>
+
+<div class="m-4 flex flex-row gap-4">
+    {{ range .Pages }}
+    <h2><a class="badge badge-primary badge-soft" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ end }}
+</div>
+
+
 {{ end }}
