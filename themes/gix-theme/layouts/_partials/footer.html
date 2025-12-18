@@ -1,22 +1,30 @@
-<footer class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+<footer class="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
     <aside>
-        <a href="{{.Site.Home.Permalink}}" class="font-semibold text-xl">{{- site.Params.BlogSettings.footerTitle
-            -}}</a>
-        <p>Copyright © {{ now.Year }} - All right reserved.</p>
+        <img class="size-14" src="{{site.Params.BlogSettings.logo}}" alt="{{.Site.Title}} logo">
+        <a href="{{.Site.Home.Permalink}}" class="font-semibold text-xl">
+            {{- site.Params.BlogSettings.footerTitle -}}
+
+            <p class="text-base font-normal">Copyright © {{ now.Year }} - All right reserved.</p>
+        </a>
     </aside>
-    {{/* <nav>
-        <h6 class="footer-title">{{ i18n "feeds" }}</h6>
-        <div class="grid grid-flow-col gap-4">
-            {{ with site.Home.OutputFormats.Get "RSS" -}}
-            <a href="{{ .Permalink }}" class="tooltip" data-tip="RSS Feed">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 11a9 9 0 0 1 9 9" />
-                    <path d="M4 4a16 16 0 0 1 16 16" />
-                    <circle cx="5" cy="19" r="1" />
-                </svg>
-            </a>
-            {{- end }}
-        </div>
-    </nav> */}}
+
+    <nav>
+        <h6 class="footer-title">Website</h6>
+        {{ with site.Home.OutputFormats.Get "RSS" -}}
+        <a href="{{ .Permalink }}" class="link link-hover"> RSS feed</a>
+        {{- end }}
+        <a href="{{ `configure-cookie` | relLangURL }}">{{i18n "configure_cookie" | default "Configure cookie" }}</a>
+        <a href="{{ `about-us` | relLangURL }}" class="link link-hover">{{ i18n "about_us" | default "About us" }}</a>
+        <a href="{{ `contact-us` | relLangURL }}" class="link link-hover">{{ i18n "contact_us" | default "Contact us"
+            }}</a>
+    </nav>
+
+    <nav>
+        <h6 class="footer-title">Legal</h6>
+        <a href="{{ `term-of-use` | relLangURL }}">{{i18n "term_of_use" | default "Term of use" }}</a>
+        <a href="{{ `privacy-policy` | relLangURL }}" class="link link-hover">{{i18n "privacy_policy" | default `Privacy
+            policy` }}</a>
+        <a href="{{ `cookie-policy` | relLangURL }}" class="link link-hover">{{i18n "cookie_policy" | default `Cookie
+            policy`}}</a>
+    </nav>
 </footer>

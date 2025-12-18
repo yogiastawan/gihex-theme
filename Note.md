@@ -9,3 +9,10 @@
 * Content title must be 50-60 words
 
 * Use `translationKey` to multi language
+
+* Below pages are must present in website:
+    - about-us
+    - contact-us
+    - term-of-use
+    - privacy-policy
+    - cookie-policy

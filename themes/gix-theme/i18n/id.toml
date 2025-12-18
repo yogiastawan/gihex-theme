@@ -72,3 +72,21 @@ other = "Beranda"
 
 [or]
 other = "Atau"
+
+[configure_cookie]
+other = "Kelola cookie"
+
+[about_us]
+other = "Tentang kami"
+
+[contact_us]
+other = "Hubungi kami"
+
+[term_of_use]
+other = "Ketentuan penggunaan"
+
+[privacy_policy]
+other = "Kebijakan privasi"
+
+[cookie_policy]
+other = "Kebijakan cookie"

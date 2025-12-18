@@ -72,3 +72,21 @@ other = "Home"
 
 [or]
 other = "Or"
+
+[configure_cookie]
+other = "Configure cookie"
+
+[about_us]
+other = "About us"
+
+[contact_us]
+other = "Contact us"
+
+[term_of_use]
+other = "Terms of use"
+
+[privacy_policy]
+other = "Privacy policy"
+
+[cookie_policy]
+other = "Cookie policy"
