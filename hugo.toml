@@ -58,20 +58,6 @@ name = 'About'
 pageRef = '/about'
 weight = 4
 
-# kind of content
-[[languages.en.params.BlogContentKinds]]
-name = "Posts"
-maxShow = 5
-section = "posts"
-url = "/posts"
-defaultThumbnail = "/images/def_th.png"
-[[languages.en.params.BlogContentKinds]]
-name = "Apps"
-maxShow = 6
-section = "apps"
-url = "/apps"
-defaultThumbnail = "/images/def_th.png"
-
 # Indonesia
 
 [languages.id]
@@ -108,21 +94,6 @@ weight = 3
 name = 'Tentang'
 pageRef = '/about'
 weight = 4
-
-# kind of content
-[[languages.id.params.BlogContentKinds]]
-name = "Postingan"
-maxShow = 5
-section = "posts"
-url = "/id/posts"
-defaultThumbnail = "/images/def_th.png"
-[[languages.id.params.BlogContentKinds]]
-name = "Aplikasi"
-maxShow = 6
-section = "apps"
-url = "/id/apps"
-defaultThumbnail = "/images/def_th.png"
-
 
 [params.pagination]
 # Number of items for term pages (e.g., /tags/blue/)

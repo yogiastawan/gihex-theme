@@ -121,10 +121,8 @@
                     {{ $page := . }}
                     <li class="flex items-center gap-3 tooltip" data-tip="{{$page.LinkTitle}}">
                         <figure class="w-16 h-10 bg-base-300 rounded shrink-0">
-                            {{- $sectionConfig := index (where site.Params.BlogContentKinds "section" $page.Section) 0
-                            -}}
-                            {{- $contentThumbnail := $sectionConfig.defaultThumbnail -}}
-                            {{- $imagePath := $page.Params.image | default $contentThumbnail -}}
+                            {{- $defaultThumbnail := .Section | site.GetPage }}
+                            {{- $imagePath := .Params.image | default $defaultThumbnail.Params.defaultThumbnail -}}
                             {{- with $imagePath -}}
                             <a href="{{ $page.RelPermalink }}">
                                 <img src="{{ . | relURL }}" alt="{{ $page.Title }}"

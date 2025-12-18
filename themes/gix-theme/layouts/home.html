@@ -11,24 +11,24 @@
   </section>
 </div>
 
-{{ range site.Params.BlogContentKinds }}
+{{ range site.Sections }}
 {{/* Store the pages for the current section in a variable */}}
-{{ $pagesInSection := where site.RegularPages ".Section" .section }}
+{{ $pagesInSection := .Pages }}
 {{ $pt := "pt-0" }}
 
 <div id="anchor-first" class="rounded-xl bg-base-200 shadow-md p-4 mt-4">
-  <a class="text-xl font-semibold grow" href="{{- .url -}}">{{- .name -}}</a>
+  <a class="text-xl font-semibold grow" href="{{- .RelPermalink -}}">{{- .Title -}}</a>
 </div>
 <div class="p-4 flex flex-col">
   {{ if $pagesInSection}}
   {{/* if there's content */}}
   <div class="flex flex-row flex-wrap gap-4 justify-center">
-    {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first .maxShow $pagesInSection)
+    {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first .Params.homeMaxView $pagesInSection)
     ) }}
   </div>
   {{/* show button more if len is more than maxShow */}}
-  {{ if gt (len $pagesInSection) .maxShow }}
-  <a href="{{- .url -}}" class="btn btn-secondary mt-4 mx-auto">{{ i18n "btn_more" }} {{ .name }}...</a>
+  {{ if gt (len $pagesInSection) .Params.homeMaxView }}
+  <a href="{{- .Permalink -}}" class="btn btn-secondary mt-4 mx-auto">{{ i18n "btn_more" }} {{ .Title }}...</a>
   {{end}}
   {{ else }}
   {{/* no content */}}

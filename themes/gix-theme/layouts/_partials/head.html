@@ -1,6 +1,5 @@
-{{- $sectionConfig := index (where site.Params.BlogContentKinds "section" .Section) 0 -}}
-{{- $contentThumbnail := $sectionConfig.defaultThumbnail -}}
-{{- $imagePath := .Params.image | default $contentThumbnail -}}
+{{- $defaultThumbnail := .Section | site.GetPage }}
+{{- $imagePath := .Params.image | default $defaultThumbnail.Params.defaultThumbnail -}}
 
 {{- $title := .Title -}}
 

@@ -4,9 +4,9 @@
 {{ range $pagesInSection }}
 <div class="card bg-base-100 w-full sm:w-96 shadow-md">
     <figure class="w-full h-48 bg-base-200">
-        {{- $sectionConfig := index (where site.Params.BlogContentKinds "section" .Section) 0 -}}
-        {{- $contentThumbnail := $sectionConfig.defaultThumbnail -}}
-        {{- $imagePath := .Params.image | default $contentThumbnail -}}
+        {{/* Get defaultThumbnail from section's _index.md */}}
+        {{- $defaultThumbnail := .Section | site.GetPage }}/
+        {{- $imagePath := .Params.image | default $defaultThumbnail.Params.defaultThumbnail -}}
         {{- with $imagePath -}}
         <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full h-full object-cover" />
         {{- end -}}
