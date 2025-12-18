@@ -2492,6 +2492,22 @@
       background-image: none;
     }
   }
+  .menu-active {
+    :where(:not(ul, details, .menu-title, .btn))& {
+      @layer daisyui.l1.l2 {
+        --tw-outline-style: none;
+        outline-style: none;
+        @media (forced-colors: active) {
+          outline: 2px solid transparent;
+          outline-offset: 2px;
+        }
+        color: var(--menu-active-fg);
+        background-color: var(--menu-active-bg);
+        background-size: auto, calc(var(--noise) * 100%);
+        background-image: none, var(--fx-noise);
+      }
+    }
+  }
   .bg-base-100 {
     background-color: var(--color-base-100);
   }
@@ -2752,6 +2768,16 @@
         &.footer-center {
           grid-auto-flow: row dense;
         }
+      }
+    }
+  }
+  .md\:navbar-end {
+    @media (width >= 48rem) {
+      @layer daisyui.l1.l2.l3 {
+        display: inline-flex;
+        align-items: center;
+        width: 50%;
+        justify-content: flex-end;
       }
     }
   }
