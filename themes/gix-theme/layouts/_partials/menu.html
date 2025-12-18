@@ -31,7 +31,7 @@ Renders a menu for the given menu ID.
       </ul>
 
       {{/* language selection */}}
-      {{ if gt (len $translation) 1 }}
+      {{ if and (gt (len $translation) 1) (ne $page.Kind "404") }}
       <div class="dropdown dropdown-end tooltip tooltip-bottom" data-tip="{{ i18n `language` | default `Language` }}">
         <div tabindex="0" role="button" class="btn btn-ghost">
           <svg fill="currentColor" height="20px" width="20px" version="1.1" id="XMLID_275_"
@@ -70,7 +70,7 @@ Renders a menu for the given menu ID.
         {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
 
         {{/* languages */}}
-        {{ if gt (len $translation) 1 }}
+        {{ if and (gt (len $translation) 1 ) (ne $page.Kind "404")}}
         <li class="collapse">
           <input type="checkbox" />
           <p class="collapse-title">
