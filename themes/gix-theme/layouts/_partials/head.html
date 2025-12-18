@@ -44,6 +44,17 @@
 <meta name="twitter:image" content="{{ . | absURL }}">
 {{- end -}}
 
+{{/* Robot tag */}}
+{{ if or (eq .Kind `taxonomy`) (eq .Kind `term`)}}
+<meta name="robots" content="noindex, follow">
+
+{{ else if (eq .Kind `404`) }}
+<meta name="robots" content="noindex, nofollow">
+
+{{else}}
+<meta name="robots" content="index, follow">
+{{ end }}
+
 {{/* canonical */}}
 {{ if eq .Kind "404" }}
 <link rel="canonical" href="{{site.Home.Permalink}}">
