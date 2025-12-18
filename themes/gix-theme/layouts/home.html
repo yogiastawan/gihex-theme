@@ -23,11 +23,12 @@
   {{ if $pagesInSection}}
   {{/* if there's content */}}
   <div class="flex flex-row flex-wrap gap-4 justify-center">
-    {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first .Params.homeMaxView $pagesInSection)
+    {{ partial "home/content_thumbnail.html" (dict "pagesInSection" (first (.Params.homeMaxView | default 6)
+    $pagesInSection)
     ) }}
   </div>
   {{/* show button more if len is more than maxShow */}}
-  {{ if gt (len $pagesInSection) .Params.homeMaxView }}
+  {{ if gt (len $pagesInSection) (.Params.homeMaxView | default 6) }}
   <a href="{{- .Permalink -}}" class="btn btn-secondary mt-4 mx-auto">{{ i18n "btn_more" }} {{ .Title }}...</a>
   {{end}}
   {{ else }}
