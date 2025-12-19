@@ -20,5 +20,5 @@
     {{- $h:=printf "<%s class=\"%s font-semibold\">%s</%s>" $heading $fontSize $title $heading -}}
     {{ $h | safeHTML}}
     {{- end -}}
-    {{ .Inner |safeHTML }}
+    {{ .Inner |markdownify }}
 </section>
