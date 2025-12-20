@@ -74,16 +74,16 @@ other = "Beranda"
 other = "Atau"
 
 [configure_cookie]
-other = "Kelola cookie"
+other = "Pengaturan cookie"
 
 [about_us]
-other = "Tentang"
+other = "Tentang Kami"
 
 [contact_us]
-other = "Kontak"
+other = "Hubungi kami"
 
 [term_of_use]
-other = "Ketentuan penggunaan"
+other = "Ketentuan pengguna"
 
 [privacy_policy]
 other = "Kebijakan privasi"
@@ -93,3 +93,12 @@ other = "Kebijakan cookie"
 
 [rss]
 other = "Berlangganan RSS {{.}}"
+
+[deny]
+other = "Tolak"
+
+[accept]
+other = "Terima semua"
+
+[save_cookie_pref]
+other = "Simpan pengaturan"

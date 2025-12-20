@@ -32,6 +32,17 @@ sectionPaginate = 12
 logo = "/"
 footerTitle = "Gix Theme"
 
+[params.Cookies]
+cookieConsentTitle = "Your privacy is important to us"
+cookieConsentDescription = "We use cookies to ensure you get the best experience on our website. You can choose to accept all cookies or manage your own preferences at configure cookie page."
+cookieConfigurePage = "cookie-configure.md"
+
+
+[[params.CookiesItem]]
+cookieKinds = "Cloudflare Web Analytics"
+cookieDescription = "Kami menggunakan layanan web analitik dari Cloudflare untuk memahami performa situs dan cara pengunjung berinteraksi dengan konten kami. Untuk keperluan tersebut cookie ini akan selalu aktif."
+idCookie = "cf_web_analytics"
+isConfigureable = false
 
 [menus]
 [[menus.main]]

@@ -93,3 +93,12 @@ other = "Cookie policy"
 
 [rss]
 other = "Subscribe to {{.}} RSS"
+
+[deny]
+other = "Deny"
+
+[accept]
+other = "Accept all"
+
+[save_cookie_pref]
+other = "Save cookie preferences"

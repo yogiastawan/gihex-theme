@@ -1,0 +1,27 @@
+<div id="cookies_consent" class="toast toast-bottom toast-center z-50 hidden">
+    <div role="alert" class="alert alert-vertical sm:alert-horizontal max-w-7xl">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info h-6 w-6 shrink-0">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <section>
+            <h2 class="font-bold text-lg">
+                {{site.Params.Cookies.cookieConsentTitle}}
+            </h2>
+            <span>{{site.Params.Cookies.cookieConsentDescription}}</span>
+
+        </section>
+        <div>
+            <button id="deny_cookie" class="btn btn-ghost btn-sm">{{i18n `deny` | default `Deny`}}</button>
+            {{ if site.Params.Cookies }}
+            {{ with site.GetPage site.Params.Cookies.cookieConfigurePage}}
+            <a href="{{.RelPermalink }}" role="button" class="btn btn-sm btn-outline btn-info">{{ i18n
+                `configure_cookie` | default
+                `Configure cookie` }}</a>
+            {{ end }}
+            {{ end }}
+
+            <button id="accept_cookie" class="btn btn-sm btn-primary">{{i18n `accept` | default `Accept`}}</button>
+        </div>
+    </div>
+</div>

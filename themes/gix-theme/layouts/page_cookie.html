@@ -1,0 +1,70 @@
+{{ define "main" }}
+
+{{- with resources.Get "js/gihex.js" }}
+{{- $opts := dict
+"minify" (not hugo.IsDevelopment)
+"sourceMap" (cond hugo.IsDevelopment "external" "")
+"targetPath" "js/gihex.js"
+}}
+{{- with . | js.Build $opts }}
+{{- if hugo.IsDevelopment }}
+<script src="{{ .RelPermalink }}"></script>
+{{- else }}
+{{- with . | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+
+
+<div class="hero bg-base-200 rounded-lg shadow-sm mt-4">
+    <section class="hero-content gap-1 w-full flex-col items-start text-left">
+        {{ partial "page/breadcrumbs.html" . }}
+
+        <h1 class="text-2xl lg:text-3xl font-bold">{{.Title}}</h1>
+    </section>
+</div>
+<div class="p-4 flex flex-col lg:flex-row gap-4">
+    <article>
+        {{ .Content }}
+
+        <ul class="list">
+            {{ range site.Params.CookiesItem }}
+            <li class="list-row">
+                <div class="list-col-grow">
+                    <p class="font-semibold text-lg">{{.cookieKinds}}</p>
+                    <p>{{.cookieDescription}}</p>
+                </div>
+
+                {{ if .isConfigureable }}
+                <input type="checkbox" class="cookieClass toggle toggle-primary" checked id="{{.idCookie}}" />
+                {{else}}
+                <input type="checkbox" class="cookieClass toggle toggle-primary" disabled checked id="{{.idCookie}}" />
+
+                {{ end }}
+            </li>
+            {{ end }}
+        </ul>
+
+
+        <button id="save_cookie_pref" class="btn btn-primary my-4">{{i18n `save_cookie_pref` | default `Save cookie
+            preference`}}</button>
+
+    </article>
+    <aside class="hidden lg:block lg:w-1/3 lg:min-w-88">
+        <div class="card bg-base-100 shadow-sm">
+
+            <div class="card-body items-center text-center">
+                <figure>
+                    <img src="{{site.Params.BlogSettings.logo}}" alt="{{site.Title}} logo" />
+                </figure>
+                <h2 class="card-title mt-4">{{site.Title}}</h2>
+            </div>
+        </div>
+    </aside>
+</div>
+
+
+{{end}}

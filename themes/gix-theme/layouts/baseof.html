@@ -14,9 +14,13 @@
       {{ block "main" . }}{{ end }}
     </div>
   </main>
-  <footer>
-    {{ partial "footer.html" . }}
-  </footer>
+
+  {{if not .Params.noCookieAlert}}
+  {{ partial "cookies_consent.html" .}}
+  {{end }}
+
+  {{ partial "footer.html" . }}
+
 </body>
 
 </html>

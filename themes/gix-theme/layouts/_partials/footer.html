@@ -14,14 +14,19 @@
             <h6 class="footer-title">Website</h6>
 
 
-
-            <a href="{{ `configure-cookie` | relLangURL }}">{{i18n "configure_cookie" | default "Configure cookie"
+            {{ with site.GetPage `configure-cookie.md` }}
+            <a href="{{ .RelPermalink }}">{{i18n "configure_cookie" | default "Configure cookie"
                 }}</a>
-            <a href="{{ `about-us` | relLangURL }}" class="link link-hover">{{ i18n "about_us" | default "About us"
+            {{ end }}
+            {{ with site.GetPage `about-us.md` }}
+            <a href="{{ .RelPermalink}}" class="link link-hover">{{ i18n "about_us" | default "About us"
                 }}</a>
-            <a href="{{ `contact-us` | relLangURL }}" class="link link-hover">{{ i18n "contact_us" | default `Contact
+            {{ end }}
+            {{ with site.GetPage `contact-us.md` }}
+            <a href="{{ .RelPermalink  }}" class="link link-hover">{{ i18n "contact_us" | default `Contact
                 us`
                 }}</a>
+            {{end}}
 
             {{ with .OutputFormats.Get "RSS" -}}
             {{ $name := (or $.Page.LinkTitle $.Page.Title) }}
@@ -29,19 +34,26 @@
             {{ if $.Page.IsHome }}
             {{ $name = $.Site.Title }}
             {{ end }}
-            <a href="{{ .Permalink }}" class="link link-hover"> {{i18n "rss" $name }}</a>
+            <a href="{{ .RelPermalink }}" class="link link-hover"> {{i18n "rss" $name }}</a>
             {{- end }}
         </nav>
 
         <nav>
             <h6 class="footer-title">Legal</h6>
-            <a href="{{ `term-of-use` | relLangURL }}">{{i18n "term_of_use" | default "Term of use" }}</a>
-            <a href="{{ `privacy-policy` | relLangURL }}" class="link link-hover">{{i18n "privacy_policy" | default
-                `Privacy
-                policy` }}</a>
-            <a href="{{ `cookie-policy` | relLangURL }}" class="link link-hover">{{i18n "cookie_policy" | default
-                `Cookie
-                policy`}}</a>
+
+            {{ with site.GetPage `term-of-use.md` }}
+            <a href="{{ .RelPermalink }}">{{i18n "term_of_use" | default "Term of use" }}</a>
+            {{end}}
+
+            {{ with site.GetPage `privacy-policy.md` }}
+            <a href="{{ .RelPermalink }}" class="link link-hover">{{i18n "privacy_policy" | default
+                `Privacy policy` }}</a>
+            {{end}}
+
+            {{ with site.GetPage `cookie-policy.md` }}
+            <a href="{{ .RelPermalink }}" class="link link-hover">{{i18n "cookie_policy" | default
+                `Cookie policy`}}</a>
+            {{end}}
         </nav>
     </div>
 
